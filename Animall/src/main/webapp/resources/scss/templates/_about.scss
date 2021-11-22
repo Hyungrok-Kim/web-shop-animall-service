@@ -1,0 +1,56 @@
+/* 13. about section */
+
+.about {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* 13.4 about video */
+    &-video {
+        min-height: 300px;
+    }
+    /* 13.6 about slider */
+    &-slider {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        .prevArrow,
+        .nextArrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            border: 0;
+            line-height: 55px;
+            text-align: center;
+            background: $white;
+            transition: .2s ease;
+            &:focus {
+                outline: 0;
+            }
+            &:hover {
+                background: $primary-color;
+                color: $white;
+            }
+        }
+        .prevArrow {
+            left: 25px;
+        }
+        .nextArrow {
+            right: 25px;
+        }
+    }
+}
+
+/* 13.8 ceo section start */
+
+.ceo-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+/* ceo section end */

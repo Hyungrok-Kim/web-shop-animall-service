@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productInquiryMapper">
+	
+	<insert id="insertProductInquiry" parameterType="ProductInquiry">
+		INSERT INTO PRODUCT_INQUIRY(PINQNO, PNO, MNO, PICONTENT, REF_RNO, PIDATE, PIANSWER, ISSECRET, PITITLE)
+		VALUES(SEQ_PINQNO.NEXTVAL, #{pno}, #{mno}, #{picontent}, DEFAULT, DEFAULT, NULL, #{issecret}, #{pititle})
+	</insert>
+	
+	<delete id="deleteProductInquiry" parameterType="_int">
+		DELETE FROM PRODUCT_INQUIRY WHERE PINQNO=#{pinqno}
+	</delete>
+	
+	<select id="selectProductInquiry" parameterType="_int" resultType="ProductInquiry">
+		SELECT * FROM PRODUCT_INQUIRY WHERE PINQNO=#{pinqno}
+	</select>
+	
+	<update id="insertAnswerInquiry" parameterType="ProductInquiry">
+		UPDATE PRODUCT_INQUIRY
+		SET PIANSWER = #{pianswer}
+		WHERE PINQNO = #{pinqno}
+	</update>
+	
+</mapper>

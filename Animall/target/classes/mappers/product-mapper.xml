@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productMapper">
+	
+	<select id="selectProductList" parameterType="string" resultType="ProductListView">
+		SELECT P.PNO, P.PNAME, P.PCONTENT, PI.CHANGENAME, P.PPRICE
+		FROM PRODUCT P JOIN PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+		WHERE PTYPE = #{ptype} AND IMGLEVEL = 0
+		ORDER BY P.PNO DESC
+	</select>
+	
+	<insert id="insertProduct" parameterType="Product">
+		INSERT INTO PRODUCT (PNO, PTYPE, PNAME, PCONTENT, PPRICE, PGUIDE)
+		VALUES(SEQ_PNO.NEXTVAL, #{ptype}, #{pname}, #{pcontent}, #{pprice}, #{pguide})	
+	</insert>
+	
+	<insert id="insertProductImage" parameterType="ProductImage">
+	
+		<selectKey keyProperty="pno" resultType="_int" order="BEFORE" >
+			SELECT SEQ_PNO.CURRVAL FROM DUAL
+		</selectKey>
+		
+		INSERT INTO PRODUCT_IMAGES(PIMGNO, PNO, ORIGINNAME, CHANGENAME, IMGPATH , IMGLEVEL)
+		VALUES(SEQ_PIMGNO.NEXTVAL, #{pno}, #{originname}, #{changename}, #{imgpath}, #{imglevel})
+	</insert>
+	
+	<select id="selectOneProduct" parameterType="_int" resultType="Product">
+		SELECT * FROM PRODUCT WHERE PNO = #{pno}
+	</select>
+	
+	<select id="selectProductImageList" parameterType="_int" resultType="ProductImage">
+		SELECT * FROM PRODUCT_IMAGES WHERE PNO = #{pno}
+	</select>
+	
+	<update id="updateProduct" parameterType="Product">
+		UPDATE PRODUCT 
+		SET PNAME = #{pname},
+			PCONTENT = #{pcontent},
+			PPRICE = #{pprice},
+			PGUIDE = #{pguide}
+		WHERE PNO = #{pno}
+	</update>
+	
+	
+	<delete id="deleteProductImage" parameterType="_int">
+		DELETE FROM PRODUCT_IMAGES WHERE PNO = #{pno}
+	</delete>
+	
+	<delete id="deleteProduct" parameterType="_int">
+		DELETE FROM PRODUCT WHERE PNO = #{pno}
+	</delete>
+	
+	<select id="selectProductReviewList" parameterType="_int" resultType="ProductReviewView">
+		SELECT PR.RNO, PR.PNO, M.NNAME, PR.RRATING, PR.RDATE, PR.RCONTENT, RI.CHANGENAME
+		FROM MEMBER M JOIN PRODUCT_REVIEW PR ON(M.MNO = PR.MNO) JOIN REVIEW_IMAGES RI ON(RI.PRIMGNO = PR.PRIMGNO)
+		WHERE PNO = #{pno} 
+		ORDER BY RDATE
+	</select>
+	
+	<select id="selectRating1" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE PNO=#{pno} AND RRATING = 1
+	</select>
+	
+	<select id="selectRating2" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE PNO=#{pno} AND RRATING = 2
+	</select>
+	
+	<select id="selectRating3" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE PNO=#{pno} AND RRATING = 3
+	</select>
+	
+	<select id="selectRating4" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE PNO=#{pno} AND RRATING = 4
+	</select>
+	
+	<select id="selectRating5" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE PNO=#{pno} AND RRATING = 5
+	</select>
+	
+	<select id="selectProductInquiryList" parameterType="_int" resultType="ProductInquiryList">
+		SELECT PI.* , M.NNAME FROM PRODUCT_INQUIRY PI JOIN MEMBER M ON(PI.MNO=M.MNO)
+		WHERE PNO = #{pno} ORDER BY PIDATE DESC
+	</select>	
+	
+	<select id="searchProductList" parameterType="ProductSearch" resultType="ProductListView">
+		SELECT P.PNO, P.PNAME, P.PCONTENT, PI.CHANGENAME, P.PPRICE
+		FROM PRODUCT P JOIN PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+		WHERE PTYPE = #{ptype} AND IMGLEVEL = 0
+		<if test="keyword != null">
+			AND (P.PNAME LIKE '%' || #{keyword} || '%'
+			OR P.PCONTENT LIKE '%' || #{keyword} || '%')
+		</if>
+		ORDER BY P.PNO DESC
+	</select>
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+</mapper>

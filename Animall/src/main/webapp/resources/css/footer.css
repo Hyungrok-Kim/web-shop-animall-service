@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+.topContainer{
+	
+	background-color : #D4D1DC ;
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+}
+
+.bigContainer1{
+	
+	display : flex;
+	height : 150px;
+	align-items: center;
+	
+}
+
+
+.bigContainer2{
+	
+	display : flex;
+	
+	
+}
+
+.bigContainer3{
+	
+	height : 60px;
+	display : flex;
+	justify-content:center ;
+	align-items: center;
+	
+	
+}
+
+.topMenu{
+	display : flex;
+	justify-content:center ;
+	align-items: center;
+	width : 130px;
+	border-right : black 1px solid;
+	height : 20px;
+	
+}
+
+.topMenu:hover a{
+	
+	color : #997296;
+	
+}
+
+.topMenu a{
+	
+	text-decoration : none;
+	color : black;
+	
+}
+
+.topMenuBlank{
+	
+	width : 440px;
+	
+}
+
+.midMenu{
+	
+	
+	height : 250px;
+	width : 400px;
+	
+}
+
+.midMenuBlank{
+	
+	width : 150px
+	
+}
+
+.midContent{
+	
+	line-height: 25px;
+	
+	
+	
+}
+
+.midTitle{
+	
+	display : flex;
+	height : 50px;
+	align-items : center;
+	
+}

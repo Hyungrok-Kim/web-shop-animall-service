@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="indexMapper">
+
+	  <select id="selectProductList" resultType="ProductListViews">
+	  SELECT * FROM(
+      SELECT P.PNO, PNAME, CHANGENAME, IMGPATH, PPRICE, SALE, SALEPRICE, PEXPLAIN, PRODUCTLEVEL
+      FROM INDEX_PRODUCT P JOIN INDEX_PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+      ORDER BY DBMS_RANDOM.VALUE)
+      WHERE PRODUCTLEVEL = 0
+      
+  	 </select>
+  	 
+  	 <select id="recSelectProductList" resultType="ProductListViews">
+	  SELECT * FROM(
+      SELECT P.PNO, PNAME, CHANGENAME, IMGPATH, PPRICE, SALE, SALEPRICE, PEXPLAIN, PRODUCTLEVEL
+      FROM INDEX_PRODUCT P JOIN INDEX_PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+      ORDER BY DBMS_RANDOM.VALUE)
+      WHERE PRODUCTLEVEL = 1
+       
+  	 </select>
+  	 
+  	 <select id="eventSelectProductList" resultType="ProductListViews">
+	  SELECT * FROM(
+      SELECT P.PNO, PNAME, CHANGENAME, IMGPATH, PPRICE, SALE, SALEPRICE, PEXPLAIN, PRODUCTLEVEL
+      FROM INDEX_PRODUCT P JOIN INDEX_PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+      ORDER BY DBMS_RANDOM.VALUE)
+      WHERE PRODUCTLEVEL = 2
+      
+  	 </select>
+  	 
+  	 <select id="instaSelectProductList" resultType="ProductListViews">
+	  SELECT * FROM(
+      SELECT P.PNO, PNAME, CHANGENAME, IMGPATH, PPRICE, SALE, SALEPRICE, PEXPLAIN, PRODUCTLEVEL
+      FROM INDEX_PRODUCT P JOIN INDEX_PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+      ORDER BY DBMS_RANDOM.VALUE)
+      WHERE PRODUCTLEVEL = 3
+      
+  	 </select>
+
+	
+	<insert id="insertProduct" parameterType="IndexProduct">
+		INSERT INTO INDEX_PRODUCT (PNO, PNAME, PPRICE, PEXPLAIN, PRODUCTLEVEL, SALE, SALEPRICE)
+		VALUES (SEQ_INDEX_PRODUCT.NEXTVAL, #{pname}, #{pprice}, #{pexplain}, #{productlevel}, #{sale}, #{saleprice})
+	</insert>
+	
+
+	<insert id="insertProductImg" parameterType="ProductImages">
+   
+      <selectKey keyProperty="pno" resultType="_int" order="BEFORE" >
+         SELECT SEQ_INDEX_PRODUCT.CURRVAL FROM DUAL
+      </selectKey>
+      
+      INSERT INTO INDEX_PRODUCT_IMAGES(PIMGNO, PNO, ORIGINNAME, CHANGENAME, IMGPATH , IMGLEVEL)
+      VALUES(SEQ_INDEX_PRODUCTIMG.NEXTVAL, #{pno}, #{originname}, #{changename}, #{imgpath}, #{imglevel})
+   </insert>
+   
+    <select id="selectProductImageList" parameterType="_int" resultType="ProductImages">
+		SELECT * FROM INDEX_PRODUCT_IMAGES WHERE PNO = #{pno}
+	</select>
+	
+	<delete id="deleteProduct" parameterType="_int">
+		DELETE FROM INDEX_PRODUCT
+		WHERE PNO = #{pno}
+	</delete>
+
+	<select id="productUpdateList" parameterType="_int" resultType="hashmap">
+      SELECT P.PNO, PNAME, ORIGINNAME, CHANGENAME, IMGPATH, PPRICE, SALE, SALEPRICE, PEXPLAIN, PRODUCTLEVEL
+      FROM INDEX_PRODUCT P JOIN INDEX_PRODUCT_IMAGES PI ON(P.PNO = PI.PNO)
+      WHERE P.PNO = #{pno}
+	</select>
+	
+	<select id="productList" parameterType="_int" resultType="IndexProduct">
+	  SELECT PNO, PNAME, PPRICE
+	  FROM INDEX_PRODUCT
+	  WHERE PNO = #{pno}
+	</select>
+	
+	<select id="productImagesList" parameterType="_int" resultType="ProductImages">
+	  SELECT PNO, ORIGINNAME, CHANGENAME, IMGPATH
+	  FROM INDEX_PRODUCT_IMAGES
+	  WHERE PNO = #{pno}
+	</select>
+	
+	<update id="productUpdateEnd" parameterType="IndexProduct">
+		UPDATE INDEX_PRODUCT
+		SET PNAME = #{pname},
+		    PPRICE = #{pprice},
+		    SALE = #{sale},
+		    SALEPRICE = #{saleprice},
+		    PEXPLAIN = #{pexplain}
+		WHERE PNO = #{pno}
+	</update>
+	
+	<update id="productImagesUpdateEnd" parameterType="ProductImages">
+		UPDATE INDEX_PRODUCT_IMAGES
+		SET ORIGINNAME = #{originname},
+		    CHANGENAME = #{changename},
+		    IMGPATH = #{imgpath}
+		WHERE PNO = #{pno}
+	</update>
+	
+</mapper>
+

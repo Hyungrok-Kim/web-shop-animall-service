@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderMapper">
+	
+	<!-- //거기도 카트 보여주도록?-->
+	<select id="selectCartList" resultType="Cart">
+		SELECT CNO, C.MNO, P.PNO, PI.CHANGENAME, 
+		   	   M.NNAME, P.PNAME, AMOUNT, PPRICE, (PPRICE*AMOUNT) MONEY 
+		FROM CART C, MEMBER M, PRODUCT P, PRODUCT_IMAGES PI
+		WHERE C.MNO = M.MNO AND C.PNO = P.PNO AND C.MNO = #{mno} AND 
+		      P.PNO = PI.PNO AND IMGLEVEL = 0
+		ORDER BY CNO
+	</select>
+	
+	<select id="selectOrderList" resultType="Order">
+ 		select ONO, PNO, MNO, RECEIVER, ADDRESS, RECEPHONE, PAYDATE
+     		FROM ORDER_TBL
+     			WHERE MNO = #{mno}
+	</select>
+	
+	<!-- 주문 정보 -->
+	<insert id="orderInfo">
+ 		insert into ORDER_TBL(ONO, PNO, MNO, RECEIVER, ADDRESS, ORDERPHONE, RECEPHONE, PAYMETHOD  )
+     			values(SEQ_ONO.NEXTVAL, #{pno}, #{mno}, #{receiver}, #{address}, #{orderphone},#{recephone},#{paymethod})
+	</insert>
+	
+	<!-- 주문 상세 정보 --> 
+	<insert id="orderDetail">
+ 			insert into ORDERDETAIL(odno, ono, oamount)
+   			  select SEQ_ODNO.nextval, #{orderId}, #{oamount}
+      		   from CART
+	</insert> 
+
+	
+	
+	<delete id="deleteCartAll">
+		DELETE
+		FROM CART
+		WHERE MNO = #{mno}
+	</delete>
+	
+	<select id="sumMoney" resultType="int">
+		<!--금액*상품개수를 곱한 값과 0을 더해 0이 나오는 것-->
+		<!--즉, 아무것도 담지 않았을 때. WHY? NULL방지!  -->
+		SELECT NVL(SUM(PPRICE*AMOUNT),0)
+		FROM CART C, PRODUCT P
+		WHERE C.PNO = P.PNO AND MNO= #{mno}
+	</select>
+	
+	
+	
+	
+</mapper>

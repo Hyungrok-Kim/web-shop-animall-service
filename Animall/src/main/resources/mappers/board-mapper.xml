@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+
+	<insert id="insertBoard">
+		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO BOARD (BNO, MNO, BTITLE, BCONTENT, BDATE)
+		VALUES (#{bno},
+		#{mno}, #{btitle}, #{bcontent}, SYSDATE)
+	</insert>
+
+
+	<insert id="insertBoardImg">
+		INSERT INTO BOARD_IMAGES (BIMGNO, BNO, MNO, ORIGINNAME, CHANGENAME,
+		IMGPATH, IMGLEVEL, UPLOADDATE)
+		SELECT SEQ_BOARD_IMAGE.NEXTVAL, A.*
+		from(
+		<foreach collection="list" item="bi" separator="UNION ALL">
+			SELECT
+			#{bi.bno}, #{bi.mno}, #{bi.originname}, #{bi.changename},
+			#{bi.imgpath}, #{bi.imglevel}, SYSDATE FROM DUAL
+		</foreach>
+		) A
+	</insert>
+
+
+	<select id="getList" resultType="Board">
+		SELECT Z.*, NVL(LC.CLICK,'N') AS CLICK, NVL(RK.REPLY_COUNT,0) AS
+		REPLYC, NVL(LK.LIKE_COUNT,0) AS LIKEC
+		FROM
+		(
+		SELECT Y.*
+		FROM
+		(
+		SELECT ROWNUM AS NUM, X.*
+		FROM
+		(
+		SELECT B.BNO, B.BTITLE, B.BCONTENT, BI.IMGPATH
+		FROM BOARD B
+		JOIN BOARD_IMAGES BI ON B.BNO = BI.BNO
+		WHERE BI.IMGLEVEL = 0
+		ORDER BY BNO DESC
+		) X
+		) Y
+		WHERE Y.NUM >= #{startIndex} AND Y.NUM <![CDATA[ <= ]]>
+		#{endIndex}
+		) Z
+		LEFT JOIN
+		(
+		SELECT BNO, COUNT(*) LIKE_COUNT
+		FROM "LIKE"
+		GROUP BY BNO
+		) LK ON LK.BNO = Z.BNO
+		LEFT JOIN
+		(
+		SELECT BNO, COUNT(*) REPLY_COUNT
+		FROM BOARD_REPLY
+		GROUP BY BNO
+		) RK ON RK.BNO = Z.BNO
+		LEFT JOIN
+		(
+		SELECT BNO, 'Y' CLICK
+		FROM "LIKE" L
+		WHERE L.MNO = #{mno}
+		) LC ON LC.BNO = Z.BNO
+
+	</select>
+
+	<select id="getOneBoard" resultType="Board">
+		SELECT B.BNO, B.BTITLE,
+		B.BCONTENT, B.BDATE, M.NNAME, M.MNO
+		FROM BOARD B JOIN MEMBER M ON B.MNO
+		= M.MNO
+		WHERE B.BNO = #{bno}
+	</select>
+
+	<select id="getReplyList" resultType="BoardReply">
+		SELECT BR.RNO, BR.RCONTENT,BR.MNO
+		,BR.RDATE, M.NNAME
+		FROM BOARD_REPLY BR JOIN MEMBER M ON BR.MNO = M.MNO
+		WHERE BR.BNO = #{bno}
+		ORDER BY RNO
+	</select>
+
+	<select id="getImgList" resultType="BoardImg">
+		SELECT IMGPATH
+		FROM
+		BOARD_IMAGES
+		WHERE BNO = #{bno}
+		ORDER BY IMGLEVEL
+	</select>
+
+	<insert id="insertReply">
+		INSERT INTO BOARD_REPLY(RNO,BNO,MNO,RCONTENT,RDATE)
+		VALUES(SEQ_BOARD_REPLY.NEXTVAL,#{bno},#{mno},#{rcontent},SYSDATE)
+	</insert>
+
+	<select id="checkLike" resultType="int">
+		SELECT COUNT(*)
+		FROM "LIKE"
+		WHERE BNO = #{bno} AND MNO = #{mno}
+	</select>
+
+	<insert id="insertLike">
+		INSERT INTO "LIKE"(BNO, MNO)
+		VALUES(#{bno},#{mno})
+	</insert>
+
+	<delete id="deleteLike">
+		DELETE FROM "LIKE"
+		WHERE BNO = #{bno} AND MNO = #{mno}
+	</delete>
+
+	<select id="countLike" resultType="int">
+		SELECT COUNT(*)
+		FROM "LIKE"
+		WHERE BNO = #{bno}
+	</select>
+
+	<update id="updateBoard">
+		UPDATE BOARD SET BTITLE = #{btitle}, BCONTENT =
+		#{bcontent}
+		WHERE BNO = #{bno}
+	</update>
+
+	<delete id="deleteBoard">
+		DELETE FROM BOARD
+		WHERE BNO = #{bno}
+	</delete>
+	
+	<update id="deleteBoardImg">
+	   	UPDATE BOARD_IMAGES SET ISDELETE = 'Y'
+	   	WHERE BNO = #{bno}
+	</update>
+	
+
+	<delete id="replyDelete">
+		DELETE FROM BOARD_REPLY
+		WHERE RNO = #{rno}
+	</delete>
+	
+	<select id="getOneReply" resultType="BoardReply">
+	
+	   SELECT RNO, BNO, MNO
+	   FROM BOARD_REPLY
+	   WHERE RNO = #{rno}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

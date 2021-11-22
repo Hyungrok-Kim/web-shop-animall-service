@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminMapper">
+	<select id="selectMemberList" resultType="Members">
+		SELECT * FROM MEMBER 
+		WHERE MTYPE = 'USER'
+	</select>
+	
+	<select id="selectMemberTotalContents" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	<delete id="memberDelete" parameterType="_int">
+		DELETE FROM MEMBER
+		WHERE MNO = #{mno}
+	</delete>
+	
+	<update id="memberWarnY" parameterType="_int">
+			UPDATE MEMBER
+			SET WARN = '경고'
+			WHERE MNO = #{mno}
+	</update>
+	
+	<update id="memberWarnN" parameterType="_int">
+			UPDATE MEMBER
+			SET WARN = '정상'
+			WHERE MNO = #{mno}
+	</update>
+	
+	<select id="selectStylistList" resultType="Stylist">
+		SELECT * FROM STYLIST 
+	</select>
+	
+	<select id="selectStylistTotalContents" resultType="_int">
+		SELECT COUNT(*) FROM STYLIST
+	</select>
+	
+	<delete id="stylistDelete"  parameterType="_int">
+		DELETE FROM STYLIST
+		WHERE STYNO = #{styno}
+	</delete>
+	
+	<select id="memberSearch" parameterType="map" resultType="MemberBoard">
+		SELECT * FROM MEMBER
+		<include refid="search"></include>
+	</select>
+	
+	<select id="searchMemberTotalContents" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		<include refid="search"></include>
+	</select>
+	
+	<select id="adminMemberList" resultType="AdminMember">
+		SELECT * FROM 
+	</select>
+	
+	<insert id="noticeWrite" parameterType="Notice">
+		INSERT INTO NOTICE (NNO, MNO, NTITLE, NCONTENT)
+		VALUES (SEQ_NOTICE.NEXTVAL, #{mno}, #{ntitle}, #{ncontent})
+	</insert>
+	
+	<select id="selectNoticeList" resultType="NoticeTotal">
+		SELECT * FROM NOTICE
+		JOIN MEMBER USING(MNO)
+		ORDER BY NNO DESC
+	</select>
+	
+	<select id="noticeTotalContents" resultType="_int">
+		SELECT COUNT(*) FROM NOTICE
+	</select>
+	
+	<sql id="search">
+		<choose>
+			<when test="searchOption == 'all'">
+				WHERE ID like '%'||#{keyword}||'%'
+				OR NNAME like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				WHERE ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+</mapper>

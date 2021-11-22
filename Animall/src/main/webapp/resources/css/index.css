@@ -1,0 +1,560 @@
+@charset "UTF-8";
+
+/* 폰트적용 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+/* ------------------------------- FIRST PRODUCT -------------------------- */
+.primeContainer_ForIndexProduct{
+ 
+	height : 800px; 
+	width : auto;
+	display : flex; 
+	align-items : center; 
+	flex-direction : column; 
+	padding-bottom : 40px; 
+	
+}
+
+.bigContainer_ForIndexProduct1{
+	 
+	width : 1350px;
+	display : flex; 
+	justify-content : center; 
+	align-items : center;
+	height : 180px; 
+	padding-top : 70px;
+	
+	
+	
+}
+
+.bigContainer_ForIndexProduct2{
+	
+	border-bottom : 1px solid gray; 
+	width : 1350px;
+	display : flex; 
+	justify-content :space-between; 
+	align-items : center;
+	height : 550px; 
+
+}
+
+.imgContainer_ForIndexProduct{
+	
+	width : 315px; 
+	height : 300px; 
+	overflow : hidden;
+	
+	
+}
+
+.imgContainer_ForIndexProduct  a  img{
+	
+	width : 100%; 
+	height : 100%;
+	transform:scale(1); 
+	transition: transform ease-in-out .3s; 
+}
+
+.imgContainer_ForIndexProduct a img:hover{
+	
+	transform:scale(1.01);        
+    transition: transform ease-in-out .3s; 
+	
+}
+
+.productContainer_ForIndexProduct{
+	
+	
+	width : 315px;
+	height : 100px ;
+	display : flex;
+	justify-content : center; 
+	align-items : center; 
+	flex-direction : column;
+	
+}
+
+.submit_forindexProduct{
+	
+	margin-top: 30px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+	
+}
+
+.submit_forindexProduct:hover{
+	
+	border : solid 1px #D4D1DC;
+	
+}
+
+.deleteButton_forindexProduct{
+	
+	margin-top: 30px;
+	margin-right: 5px; 
+	background-color: #997296; 
+	color: white;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.deleteButton_forindexProduct:hover{
+	
+	border :1px solid #D4D1DC;
+	
+}
+
+.updateButton_forindexProduct{
+	
+	
+	margin-top: 30px; 
+	margin-left: 5px;
+	background-color: #D4D1DC; 
+	color: black;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.updateButton_forindexProduct:hover{
+	
+	border :1px solid #997296; 
+	
+	
+}
+
+/* ------------------------------- YEAR PRODUCT -------------------------- */
+
+.primeContainer_ForYear{
+ 
+	height : 700px; 
+	width : 100%;
+	display : flex; 
+	flex-direction : column;
+	align-items : center;
+	padding-bottom : 40px; 
+	
+
+	
+}
+
+.primeSemiContainer_ForYear{
+	
+	display : flex; 
+	align-items : center;
+	justify-content : center; 
+	
+
+}
+
+.bigContainer_ForYear1{
+	 
+	width : 400px;
+	display : flex; 
+	flex-direction : column;
+	justify-content : flex-start;
+	align-items : flex-start;
+	height : 550px; 
+	padding-top : 70px;
+	
+
+	
+}
+
+.title_ForYear1{
+	
+	
+}
+
+.title2_ForYear{
+	
+	color : gray;
+	
+}
+
+.bigContainer_ForYear2{
+	
+	
+	width : 950px;
+	display : flex; 
+	justify-content :center; 
+	align-items : center;
+	height : 550px; 
+
+}
+
+.imgContainer_ForYear{
+	
+	width : 950px; 
+	height : 400px; 
+	overflow : hidden;
+	
+	
+}
+
+.imgContainer_ForYear  a  img{
+	
+	width : 100%; 
+	height : 100%;
+	transform:scale(1); 
+	transition: transform ease-in-out .3s; 
+	
+	
+}
+
+.imgContainer_ForYear a img:hover{
+	
+	transform:scale(1.01);        
+    transition: transform ease-in-out .3s; 
+	
+}
+
+.productContainer_ForYear{
+	
+	
+	width : 950px;
+	height : 100px ;
+	display : flex;
+	flex-direction : column;
+	justify-content : center; 
+	align-items : flex-start; 
+	padding-left : 10px;
+	padding-top : 10px;
+}
+
+.priceContainer_ForYear{
+	
+	display : flex;
+	
+}
+
+.deleteButton_forYear{
+	
+	margin-top: 30px;
+	margin-right: 5px; 
+	background-color: #997296; 
+	color: white;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.deleteButton_forYear:hover{
+	
+	border : solid 1px #D4D1DC;
+	
+}
+
+.updateButton_forYear{
+	
+	
+	margin-top: 30px; 
+	margin-left: 5px;
+	background-color: #D4D1DC; 
+	color: black;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.updateButton_forYear:hover{
+	
+	border : solid 1px #997296; 
+	
+}
+
+.submit_forYear{
+	
+	margin-top: 30px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+	
+}
+
+
+
+/* ------------------------------- EVENT PRODUCT -------------------------- */
+
+.primeContainer_ForEvent{
+ 
+	height : 800px; 
+	width : auto;
+	display : flex; 
+	align-items : center; 
+	flex-direction : column; 
+	padding-bottom : 40px; 
+	background-color : #f9f9f9 ;
+	
+}
+
+.bigContainer_ForEvent1{
+	 
+	width : 1350px;
+	display : flex; 
+	justify-content : center; 
+	align-items : center;
+	height : 180px; 
+	padding-top : 70px;
+	
+	
+	
+}
+
+.bigContainer_ForEvent2{
+	
+	
+	width : 1350px;
+	display : flex; 
+	justify-content :space-between; 
+	align-items : center;
+	height : 550px; 
+
+}
+
+.imgContainer_ForEvent{
+	
+	width : 415px; 
+	height : 350px; 
+	overflow : hidden;
+	
+	
+}
+
+.imgContainer_ForEvent  a  img{
+	
+	width : 100%; 
+	height : 100%;
+	transform:scale(1); 
+	transition: transform ease-in-out .3s; 
+}
+
+.imgContainer_ForEvent a img:hover{
+	
+	transform:scale(1.01);        
+    transition: transform ease-in-out .3s; 
+	
+}
+
+.productContainer_ForEvent{
+	
+	
+	width : 415px;
+	height : 100px ;
+	display : flex;
+	justify-content : center; 
+	align-items : center; 
+	flex-direction : column;
+	
+}
+
+.deleteButton_ForEvent{
+	
+	margin-top: 30px;
+	margin-right: 5px; 
+	background-color: #997296; 
+	color: white;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+
+.deleteButton_ForEvent:hover{
+	
+	border : solid 1px #D4D1DC; 
+	
+}
+
+
+.updateButton_ForEvent{
+	
+	
+	margin-top: 30px; 
+	margin-left: 5px;
+	background-color: #D4D1DC; 
+	color: black;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.updateButton_ForEvent:hover{
+	
+	border : solid 1px #997296;
+	
+}
+
+.submit_ForEvent{
+	
+	margin-top: 30px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+	
+}
+
+
+
+/* ------------------------------- INSTA PRODUCT -------------------------- */
+
+.primeContainer_ForInsta{
+ 
+	height : 800px; 
+	width : auto;
+	display : flex; 
+	align-items : center; 
+	flex-direction : column; 
+	padding-bottom : 40px; 
+	
+}
+
+.bigContainer_ForInsta1{
+	 
+	width : 1350px;
+	display : flex; 
+	justify-content : center; 
+	align-items : center;
+	height : 180px; 
+	padding-top : 70px;
+	
+	
+	
+}
+
+.bigContainer_ForInsta2{
+	
+	border-bottom : 1px solid black; 
+	width : 1350px;
+	display : flex; 
+	justify-content :space-between; 
+	align-items : center;
+	height : 350px; 
+
+}
+
+.imgContainer_ForInsta{
+	position : relative;
+	width : 245px; 
+	height : 200px; 
+	overflow : hidden;
+	
+	
+}
+
+.div_ForInstaHover{
+	
+	
+	background-color : black; 
+	left : 0; 
+	top : 0;
+	opacity : .5; 
+	position : absolute; 
+	width : 100%; 
+	height : 100%;
+	visibility : hidden;
+	display : flex;
+	justify-content : center;
+	align-items:center;
+}
+
+.div_ForInstaHover i{
+	
+	color : white;
+	
+}
+
+.imgContainer_ForInsta  a  img{
+	
+	
+	width : 100%; 
+	height : 100%;
+	
+}
+
+.imgContainer_ForInsta:hover div{
+	
+	visibility : visible;
+	
+}
+
+
+.submit_ForInsta{
+	
+	margin-top: 30px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+	
+}
+
+.deleteButton_ForInsta{
+	
+	margin-top: 30px;
+	margin-right: 5px; 
+	background-color: #997296; 
+	color: white;
+	border-radius: 10px; 
+	cursor: pointer; 
+	border : none;
+	height: 40px;
+	width: 100px;
+	
+}
+
+.deleteButton_ForInsta:hover{
+	
+	border : solid 1px #D4D1DC; 
+	
+}
+
+

@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+.primeContainer_forRayer{
+	
+	visibility : hidden;
+	
+}
+
+.dimedContainer_forRayer{
+	
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	background-color: #0000004d; 
+	z-index: 9998;
+	
+}
+
+.bigContainer_forRayer{
+	
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	widtH: 100%; 
+	height: 100%; 
+	z-index: 9999;
+	
+	
+}
+
+.formContainer_forRayer{
+	
+background-color: white; 
+width: 550px; 
+height: 600px; 
+position: relative; 
+display: flex; 
+justify-content: center;
+border-radius : 10px;
+
+}
+
+.title_forRayer{
+	
+	height: 60px;
+	width: 350px; 
+	margin-bottom : 30px;
+	border : none;
+	border-bottom: 1px solid #191621; 
+	font-size: 18pt;  
+	border-radius: 0;
+	padding: 10px;
+}
+
+
+.content_container_forRayer{
+	
+	 
+	margin-bottom : 5px;
+	
+}
+
+.content_forRayer{
+	
+	border: solid 1px black; 
+	font-size: 15pt; 
+	width: 350px; 
+	height: 50px; 
+	padding: 13px;
+	border-radius: 10px;
+}
+
+.select_forRayer{
+	
+	border: solid 1px black; 
+	font-size: 13pt; 
+	width: 350px; 
+	height: 50px; 
+	padding: 13px;
+	border-radius: 10px;
+	
+}
+
+.fileContainer_forRayer div{
+	
+	margin-top : 10px;
+	
+}
+
+.writeButton_forRayer{
+	
+	border : none;
+	margin-top: 20px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+}
+
+
+.writeButton_forRayer:hover{
+	
+	background-color: #D4D1DC;
+	color : white;
+}
+
+.closeButton_forRayer{
+	
+	cursor: pointer; 
+	position: absolute; 
+	top: 10px; 
+	right: 10px;
+
+}
+
+.closeButton_forRayer i{
+	
+font-size : 40px;
+
+	
+}
+
+.closeButton_forRayer i:hover{
+	
+	color : #997296; 
+	
+}
+
+.fileBox{
+	
+	display : flex;
+	align-items: center;
+	width : 350px;
+	
+}
+
+
+.fileBox label i{
+	
+	cursor : pointer;
+	font-size : 25pt;
+	color : #997296;
+	padding-bottom : 4px;
+		
+		
+}
+
+.fileBox label{
+	
+}
+
+
+.fileBox input[type="file"]{
+	
+	visibility : hidden;
+	overflow : hidden;
+}
+
+.fileBox .nameBox{
+	
+	padding: .5em .75em; 
+	font-size: inherit; 
+	font-family: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #f5f5f5; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	appearance: none;
+
+}

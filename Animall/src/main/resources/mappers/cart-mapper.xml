@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartMapper">
+	
+	<select id="selectCartList" resultType="Cart">
+		SELECT CNO, C.MNO, P.PNO, PI.CHANGENAME, 
+		   	   M.NNAME, P.PNAME, AMOUNT, PPRICE, (PPRICE*AMOUNT) MONEY 
+		FROM CART C, MEMBER M, PRODUCT P, PRODUCT_IMAGES PI
+		WHERE C.MNO = M.MNO AND C.PNO = P.PNO AND C.MNO = #{mno} AND 
+		      P.PNO = PI.PNO AND IMGLEVEL = 0
+		ORDER BY CNO
+	</select>
+	
+	<insert id="insertCart" parameterType="Cart">
+		INSERT INTO CART (CNO, MNO, PNO, AMOUNT)
+		VALUES(SEQ_CNO.NEXTVAL , #{mno}, #{pno}, #{amount})
+	</insert>
+
+	<delete id="deleteCart">
+		DELETE
+		FROM CART
+		WHERE CNO = #{cno}
+	</delete>
+	
+	<delete id="deleteCartAll">
+		DELETE
+		FROM CART
+		WHERE MNO = #{mno}
+	</delete>
+	
+	<select id="sumMoney" resultType="int">
+		<!--금액*상품개수를 곱한 값과 0을 더해 0이 나오는 것-->
+		<!--즉, 아무것도 담지 않았을 때. WHY? NULL방지!  -->
+		SELECT NVL(SUM(PPRICE*AMOUNT),0)
+		FROM CART C, PRODUCT P
+		WHERE C.PNO = P.PNO AND MNO= #{mno}
+	</select>
+	
+	<select id="countCart" resultType="int">
+		SELECT COUNT(*)
+		FROM CART
+		WHERE MNO=#{mno}
+		AND PNO=#{pno}
+	</select>
+
+	<update id="updateCart">
+		UPDATE CART
+		SET AMOUNT = AMOUNT + #{amount}
+		WHERE MNO = #{mno}
+		AND PNO = #{pno}
+	</update>
+	
+	<update id="modifyCart">
+		UPDATE CART
+		SET AMOUNT = #{amount}
+		WHERE MNO = #{mno}
+		AND CNO = #{cno}
+	</update>
+	
+	
+	
+	
+
+	
+	
+	 
+	
+</mapper>

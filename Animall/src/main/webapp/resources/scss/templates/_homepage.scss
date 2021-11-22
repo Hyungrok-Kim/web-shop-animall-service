@@ -1,0 +1,209 @@
+/* 5. progrgess bar start */
+.progressbar-title {
+    font-size: 17px;
+    font-family: $secondary-font;
+    margin-bottom: 7px;
+    color: $text-color-dark !important;
+}
+
+.progress {
+    border-radius: 35px;
+    overflow: visible;
+    margin-bottom: 35px;
+
+    /* 5.2 progressbar value */
+    &-bar {
+        background-color: $secondary-color;
+        border-radius: 35px;
+        position: relative;
+
+        &-value {
+            font-family: $secondary-font;
+            font-weight: 600;
+            color: $white;
+            background: $secondary-color;
+            padding: 5px 9px;
+            position: absolute;
+            top: -35px;
+            right: -15px;
+            border-radius: 5px;
+
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -5px;
+                left: 50%;
+                background: $secondary-color;
+                height: 10px;
+                width: 10px;
+                transform: translateX(-50%) rotate(-45deg);
+            }
+        }
+    }
+}
+
+/* progrgess bar End */
+/* 6. mission section start */
+.card-header {
+    &:first-child{
+        border-radius: 35px;
+    }
+}
+
+/* 7. promo video section start */
+.promo-video {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    p {
+        font-family: $work-sans;
+    }
+}
+
+/* promo video section end */
+/* 8. testimonial section start */
+.testimonial {
+    &-slider {
+        box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.1);
+        position: relative;
+
+        .prevArrow,
+        .nextArrow {
+            position: absolute;
+            top: 85px;
+            border: 0;
+            font-size: 20px;
+            background: transparent;
+            color: $primary-color;
+            z-index: 9;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        .prevArrow {
+            right: 90px;
+        }
+
+        .nextArrow {
+            right: 50px;
+        }
+
+        .slick-disabled {
+            color: #e5e5e5;
+        }
+    }
+
+    &-icon {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background: $bg-gray;
+        color: $primary-color;
+        font-size: 25px;
+        line-height: 80px;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+}
+
+/* testimonial section end */
+/* 10. client logo slider start */
+.client-logo-slider {
+    .slick-track {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* client logo slider end */
+/* 11. fun-facts section start */
+.fun-facts {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* fun-facts section end */
+/* 12. consultation section start */
+.consultation {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* consultation section end */
+/* 16. call to action start */
+.cta {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* card */
+.card {
+    &-img-wrapper {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: 100%;
+            background: $black;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transition: .2s;
+        }
+    }
+
+    &-body-2 {
+        position: relative;
+        transition: .2s ease;
+        border-radius: 0 0 5px 5px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            height: 30px;
+            width: 30px;
+            background: $white;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            transition: .2s ease;
+        }
+    }
+
+    &:hover {
+        .card-img-wrapper {
+            &::before {
+                opacity: .4;
+            }
+        }
+
+        .card-body-2 {
+            background: $primary-color;
+
+            h5,
+            h6,
+            a {
+                color: $white;
+            }
+
+            &::before {
+                background: $primary-color;
+            }
+        }
+    }
+}
+
+.overlay-rounded-top {
+    &::before {
+        border-radius: 5px 5px 0 0;
+    }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+	<typeAliases>
+        
+        <typeAlias type="com.kh.animall.users.board.model.vo.Board" alias="Board" />
+        <typeAlias type="com.kh.animall.users.board.model.vo.BoardReply" alias="BoardReply"/>
+        <typeAlias type="com.kh.animall.users.board.model.vo.BoardImg" alias="BoardImg"/>
+        <typeAlias type="com.kh.animall.users.styboard.model.vo.StyBoard" alias="StyBoard" />
+        <typeAlias type="com.kh.animall.users.styboard.model.vo.StyBoardImg" alias="StyBoardImg" />  
+        
+		<typeAlias type="com.kh.animall.users.product.model.vo.Product" alias="Product" />
+		<typeAlias type="com.kh.animall.users.product.model.vo.ProductImage" alias="ProductImage" />
+		<typeAlias type="com.kh.animall.users.product.model.vo.ProductListView" alias="ProductListView" />
+		<typeAlias type="com.kh.animall.users.productreview.model.vo.ProductReview" alias="ProductReview" />
+		<typeAlias type="com.kh.animall.users.productreview.model.vo.ProductReviewImage" alias="ProductReviewImage" />
+		<typeAlias type="com.kh.animall.users.product.model.vo.ProductReviewView" alias="ProductReviewView" />
+		<typeAlias type="com.kh.animall.users.productinquiry.model.vo.ProductInquiry" alias="ProductInquiry" />
+		<typeAlias type="com.kh.animall.users.productinquiry.model.vo.ProductInquiryList" alias="ProductInquiryList" />
+ 	    <typeAlias type="com.kh.animall.users.product.model.vo.ProductSearch" alias="ProductSearch" />
+		
+		<typeAlias type="com.kh.animall.index.model.vo.IndexProduct" alias="IndexProduct" />
+   		<typeAlias type="com.kh.animall.index.model.vo.ProductImages" alias="ProductImages"/>
+		<typeAlias alias="ProductListViews" type="com.kh.animall.index.model.vo.ProductListViews"/>
+   	    <typeAlias alias="Stylist" type="com.kh.animall.admin.model.vo.Stylist"/>
+    	<typeAlias alias="MemberBoard" type="com.kh.animall.admin.model.vo.MemberBoard"/>
+		<typeAlias alias="AdminMember" type="com.kh.animall.admin.model.vo.AdminMember"/>
+		<typeAlias alias="Notice" type="com.kh.animall.admin.model.vo.Notice"/>
+		<typeAlias alias="NoticeTotal" type="com.kh.animall.admin.model.vo.NoticeTotal"/>
+		
+		<typeAlias type="com.kh.animall.admin.model.vo.Members" alias="Members" />
+    
+		<typeAlias type="com.kh.animall.users.member.model.vo.Member" alias="Member" />
+		
+		<typeAlias type="com.kh.animall.users.cart.model.vo.Cart" alias="Cart" />
+		
+		<typeAlias type="com.kh.animall.users.stylist.model.vo.MyStylist" alias="MyStylist" />
+		
+        <typeAlias type="com.kh.animall.users.order.model.vo.Order" alias="Order" />
+
+	</typeAliases>
+
+	<typeHandlers>
+	
+	</typeHandlers>
+	
+</configuration>

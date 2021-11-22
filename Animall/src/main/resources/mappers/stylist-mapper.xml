@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stylistMapper">
+
+	<select id="selectOneStylist" resultType="MyStylist">
+		SELECT * FROM STYLIST
+		WHERE MNO = #{ mno }
+	</select>
+	
+	<select id="selectOneMember" parameterType="string" resultType="Member">
+		SELECT * FROM MEMBER
+		WHERE NNAME = #{ styname }
+	</select>
+	
+	<insert id="insertStylist">
+		INSERT INTO STYLIST VALUES(
+		    SEQ_STYLIST.NEXTVAL, #{mno}, #{bsno}, #{bsname}, #{styname}, SYSDATE, #{cellphone},
+		    #{shopname}, #{shopphone}, #{shopaddress}, 'N', #{certifino}, #{certImg})
+	</insert>
+	
+	<update id="updateMemberType">
+		UPDATE MEMBER
+		SET MTYPE = 'STY'
+		WHERE MNO = #{mno}
+	</update>
+	
+	
+	<update id="updatePremium">
+		UPDATE STYLIST
+		SET ISPRE = 'Y'
+		WHERE MNO = #{mno}
+	</update>
+	
+	<update id="updateStylist">
+		UPDATE STYLIST
+		SET CERTIFINO = #{certifino}
+		<if test="certImg != null">
+			, CERTIMG = #{certImg}
+		</if>
+		WHERE MNO = #{mno}
+	</update>
+	
+	<delete id="deleteStylist">
+		DELETE FROM STYLIST
+		WHERE MNO = #{mno}
+	</delete>
+</mapper>
+

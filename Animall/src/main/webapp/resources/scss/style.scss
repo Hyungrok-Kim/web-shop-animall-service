@@ -1,0 +1,208 @@
+/*!------------------------------------------------------------------
+[MAIN STYLESHEET]
+
+PROJECT:	Biztrox | Business HTML5 Template
+VERSION:	1.0.0
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[TABLE OF CONTENTS]
+
+1. BASE
+
+    1.1. Typography
+    1.2. Common Styles
+        1.2.1 Page Title
+        1.2.1 404 page
+    1.3 Button Style
+
+2. NAVIGATION
+
+3. HERO AREA
+
+4. SKILL SECTION
+
+    4.1. fun-facts
+    4.2. counter
+
+5. PROGRESS SECTION
+
+    5.1. progressbar title
+    5.2. progressbar value
+
+6. MISSION SECTION
+
+    6.1. card header
+    6.2. card body
+
+7. PROMO VIDEO SECTION
+
+8. TESTIMONIAL SECTION
+
+    8.1. testimonial slider
+    8.2. testimonial content
+
+9. CONTACT
+
+    9.1. Address Item
+    9.2. Google Map
+    9.3. COntact Form
+
+10. CLIENT LOGO SLIDER
+
+11. FUN-FACTS SECTION
+
+12. CONSULTATION SECTION
+
+    12.1 background image
+    12.2 form-control
+
+13. ABOUT SECTION
+
+    13.1 about content
+    13.2 about item
+    13.3 about content 2
+    13.4 about video
+    13.5 about content 3
+    13.6 about slider
+    13.7 philosophy
+    13.8 ceo
+
+        13.8.1 ceo item
+        13.8.1 ceo content
+        13.8.1 ceo content-2
+
+
+14. SERVICE SECTION
+
+    14.1 service item
+    14.2 service item 2
+    14.3 clients
+    14.4 Process
+    14.5 service menu
+    14.6 service brochure
+    14.7 service schedule
+    14.8 service consultation
+    14.9 service single
+
+        14.9.1 service single image
+        14.9.2 service single content
+        14.9.3 service single list
+        14.9.4 service single benefit
+        14.9.5 widget
+
+15. WORK SECTION
+
+    15.1 work slider
+    15.2 slick dots
+
+16. CALL TO ACTION
+
+17. TEAM SECTION
+
+    17.1 team item
+    17.2 team content
+    17.3 team member
+    17.4 team single
+
+        17.4.1 team member info item
+        17.4.2 team member details
+
+18. PRICING SECTION
+
+    18.1 pricing item
+
+19. PROJECT SECTION
+
+    19.1 project menu
+    19.2 project item
+    19.3 project single
+
+        19.3.1 project overview
+        19.3.2 case study
+        19.3.3 project single content
+
+    19.4 nav-tabs
+    19.5 tab content
+
+20. FAQ SECTION
+
+21. BLOG SECTION
+
+    21.1 blog item
+    21.2 blog content
+    21.3 blog content 2
+    21.4 blog post
+
+        21.4.1 post slider
+        21.4.2 post video
+        21.4.3 pagination
+        21.4.4 sidebar
+
+    21.5 blog single
+
+        21.5.1 blog single container
+        21.5.2 blog single content
+        21.5.3 blog single list
+        21.5.4 blog single testimonial
+        21.5.5 share tags
+        21.5.6 comments
+        21.5.7 blog-sidebar
+
+22. CONTACT SECTION
+
+    22.1 contact item
+    22.2 contact form
+    22.3 google map
+
+23. SIGNUP WRAPPER
+
+    23.1 signup greetngs
+    23.2 signup form
+
+24. COMMING SOON
+
+    24.1 SYOtimer
+
+25. FOOTER SECTION
+
+    25.1 social link
+    25.2 footer link
+    25.3 subcription
+    25.4 copyright
+    25.5 back to top
+-------------------------------------------------------------------*/
+
+
+@import 'variables';
+
+@import 'mixins';
+
+@import 'typography';
+
+@import 'buttons';
+
+@import 'common';
+
+@import 'templates/navigation';
+
+@import 'templates/hero-area';
+
+@import 'templates/homepage';
+
+@import 'templates/about';
+
+@import 'templates/service';
+
+@import 'templates/work';
+
+@import 'templates/project';
+
+@import 'templates/blog';
+
+@import 'templates/contact';
+
+@import 'templates/signup';
+
+@import 'templates/comming-soon';
+
+@import 'templates/footer';

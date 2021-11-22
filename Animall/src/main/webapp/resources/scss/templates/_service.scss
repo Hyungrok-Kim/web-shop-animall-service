@@ -1,0 +1,122 @@
+/* 14.3 clients */
+.clients {
+    background-position: center right;
+    background-size: 50%;
+    background-repeat: no-repeat;
+
+    @include desktop {
+        background-size: cover !important;
+        background-position: center center;
+        text-align: center;
+    }
+
+    ul {
+        li {
+            height: 66px;
+
+            img {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/* 14.4 process */
+.process {
+    &-item {
+        width: 330px;
+
+        @include desktop-lg {
+            width: unset;
+        }
+
+        &-number {
+            position: absolute;
+            left: -35px;
+            top: -35px;
+            height: 70px;
+            width: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            text-align: center;
+            background: $white;
+            box-shadow: -5px 0px 40px 0px rgba(0, 0, 0, 0.1);
+            font-family: $secondary-font;
+            font-weight: 700;
+            font-size: 32px;
+            color: $text-color-dark;
+
+            @include desktop-lg {
+                top: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        h5 {
+            margin-bottom: 5px;
+            color: $primary-color;
+        }
+    }
+}
+
+img.arrow-top {
+    position: absolute;
+    top: 220px;
+    right: 250px;
+
+    @include desktop-lg {
+        display: none;
+    }
+}
+
+img.arrow-bottom {
+    position: absolute;
+    bottom: 100px;
+    left: 250px;
+
+    @include desktop-lg {
+        display: none;
+    }
+}
+
+/* service single start */
+.service-menu {
+    li {
+        &.active {
+            position: relative;
+
+            a {
+                background: $secondary-color;
+                color: $white !important;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                height: 15px;
+                width: 15px;
+                background: $secondary-color;
+                top: 50%;
+                right: -7px;
+                transform: translateY(-50%) rotate(-45deg);
+
+                @include desktop {
+                    display: none;
+                }
+            }
+        }
+
+        &:hover {
+            a {
+                color: $white !important;
+                background: $secondary-color;
+            }
+        }
+    }
+}
+
+/* service single end */

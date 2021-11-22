@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="styboardMapper">
+
+	<resultMap id="infoSelectMap" type="HashMap">
+		<result javaType="String"	property="shopName" 	column="SHOPNAME"/>
+		<result javaType="String"	property="shopPhone"	column="SHOPPHONE"/>
+		<result javaType="String"	property="shopAddress"	column="SHOPADDRESS"/>
+		<result javaType="String"	property="bsno"			column="BSNO"/>
+	</resultMap>
+
+	<insert id="insertStyBoard">
+		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+			SELECT SEQ_STYBOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO STYBOARD (BNO, STYNO, BTITLE, BCONTENT, BDATE)
+		VALUES (#{bno},
+		#{styno}, #{btitle}, #{bcontent}, SYSDATE)
+	</insert>
+
+
+	<insert id="insertStyBoardImg">
+		INSERT INTO STYBOARD_IMAGES (BIMGNO, BNO, STYNO, ORIGINNAME, CHANGENAME,
+		IMGPATH, IMGLEVEL, UPLOADDATE)
+		SELECT SEQ_STYBOARD_IMAGE.NEXTVAL, A.*
+		from(
+		<foreach collection="list" item="bi" separator="UNION ALL">
+			SELECT
+			#{bi.bno}, #{bi.styno}, #{bi.originname}, #{bi.changename},
+			#{bi.imgpath}, #{bi.imglevel}, SYSDATE FROM DUAL
+		</foreach>
+		) A
+	</insert>
+
+
+	<select id="getList" resultType="StyBoard">
+		SELECT Z.*, NVL(LC.CLICK,'N') AS CLICK, NVL(LK.LIKE_COUNT,0) AS LIKEC
+		FROM
+		(
+		SELECT Y.*
+		FROM
+		(
+		SELECT ROWNUM AS NUM, X.*
+		FROM
+		(
+		SELECT B.BNO, B.BTITLE, B.BCONTENT, BI.IMGPATH, SL.ISPRE
+		FROM STYBOARD B
+		JOIN STYBOARD_IMAGES BI ON B.BNO = BI.BNO
+		JOIN STYLIST SL ON SL.STYNO = B.STYNO
+		WHERE BI.IMGLEVEL = 0
+		AND (B.BTITLE LIKE '%'||#{searchKeyword}||'%' OR B.BCONTENT LIKE '%'||#{searchKeyword}||'%' OR SL.SHOPNAME LIKE '%'||#{searchKeyword}||'%' OR SL.SHOPADDRESS LIKE '%'||#{searchKeyword}||'%')
+		ORDER BY SL.ISPRE DESC, B.BNO DESC
+		) X
+		) Y
+		WHERE Y.NUM >= #{startIndex} AND Y.NUM <![CDATA[ <= ]]>
+		#{endIndex}
+		) Z
+		LEFT JOIN
+		(
+		SELECT BNO, COUNT(*) LIKE_COUNT
+		FROM STYLIKE
+		GROUP BY BNO
+		) LK ON LK.BNO = Z.BNO
+		LEFT JOIN
+		(
+		SELECT BNO, 'Y' CLICK
+		FROM STYLIKE L
+		WHERE L.MNO = #{mno}
+		) LC ON LC.BNO = Z.BNO
+		ORDER BY NUM
+
+	</select>
+
+	<select id="getOneBoard" resultType="StyBoard">
+		SELECT B.BNO, B.BTITLE, B.BCONTENT, B.BDATE,
+		S.MNO, S.SHOPNAME, S.SHOPPHONE, S.SHOPADDRESS, S.BSNO
+		FROM STYBOARD B JOIN STYLIST S ON B.STYNO = S.STYNO
+		WHERE B.BNO = #{bno}
+	</select>	
+
+	<select id="getImgList" resultType="StyBoardImg">
+		SELECT IMGPATH
+		FROM
+		STYBOARD_IMAGES
+		WHERE BNO = #{bno}
+		ORDER BY IMGLEVEL
+	</select>
+	
+	<select id="checkLike" resultType="int">
+		SELECT COUNT(*)
+		FROM STYLIKE
+		WHERE BNO = #{bno} AND MNO = #{mno}
+	</select>
+
+	<insert id="insertLike">
+		INSERT INTO STYLIKE(BNO, MNO)
+		VALUES(#{bno},#{mno})
+	</insert>
+
+	<delete id="deleteLike">
+		DELETE FROM STYLIKE
+		WHERE BNO = #{bno} AND MNO = #{mno}
+	</delete>
+
+	<select id="countLike" resultType="int">
+		SELECT COUNT(*)
+		FROM STYLIKE
+		WHERE BNO = #{bno}
+	</select>
+
+	<update id="updateBoard">
+		UPDATE STYBOARD SET BTITLE = #{btitle}, BCONTENT =
+		#{bcontent}
+		WHERE BNO = #{bno}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM STYBOARD
+		WHERE BNO = #{bno}
+	</delete>
+	
+	<update id="deleteBoardImg">
+	   	UPDATE STYBOARD_IMAGES SET ISDELETE = 'Y'
+	   	WHERE BNO = #{bno}
+	</update>	
+	
+	<select id="getInfo" resultMap="infoSelectMap">
+		SELECT  SHOPNAME, SHOPPHONE, SHOPADDRESS, BSNO
+		FROM STYLIST 
+		WHERE MNO = #{mno}
+	</select>
+	
+	<select id="getStynoByMno" resultType="Integer">
+		SELECT STYNO
+	    FROM STYLIST
+	    WHERE MNO = #{mno}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+

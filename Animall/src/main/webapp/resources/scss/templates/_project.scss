@@ -1,0 +1,141 @@
+/* 19. project section */
+.project {
+    /* 19.1 project menu */
+    &-menu {
+        ul {
+            li {
+                padding: 5px 20px;
+                border-radius: 35px;
+                color: $text-color-dark;
+                font-size: 16px;
+                font-weight: 400;
+                border: 1px solid $border-color;
+                cursor: pointer;
+                background: $bg-gray;
+                margin: 0 10px 25px;
+                &.active {
+                    background: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+    /* 19.2 project item */
+    &-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba($color: $black, $alpha: .7);
+        opacity: 0;
+        transition: .2s ease;
+        a {
+            color: $white;
+            position: absolute;
+            left: 30px;
+            bottom: 40px;
+            transform: translateY(20px);
+            opacity: 0;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+        p {
+            position: absolute;
+            left: 25px;
+            bottom: 0;
+            color: $white;
+            transition: .2s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            transition-delay: .1s;
+            i {
+                margin-right: 5px;
+            }
+        }
+        &:hover {
+            opacity: 1;
+            a {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            p {
+                transform: translateY(0);
+                opacity: .7;
+            }
+        }
+    }
+}
+
+/* 19.3 project single page start */
+
+/* 19.4 nav tabs */
+.nav-tabs {
+    border: 0;
+    margin-bottom: 30px;
+    @include desktop {
+        justify-content: center;
+    }
+    .nav-item {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+        @include mobile {
+            margin-bottom: 10px;
+        }
+        .nav-link {
+            padding: 10px 30px;
+            border: 1px solid $border-color;
+            background: $bg-gray;
+            border-radius: 45px;
+            text-align: center;
+            vertical-align: middle;
+            color: $text-color-dark;
+            transition: .2s ease;
+            font-size: 16px;
+            font-family: $primary-font;
+        }
+        .active {
+            background: $white;
+            color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+}
+
+/* 19.5 tab content */
+.tab-content {
+    padding: 40px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    background: $white;
+    border: 1px solid $border-color;
+    &-item {
+        margin-left: 20px;
+        &:not(:last-child) {
+            margin-bottom: 45px;
+        }
+        h6 {
+            font-family: $secondary-font;
+            font-weight: 600;
+            font-size: 14px;
+            color: $text-color-dark;
+            margin-bottom: 25px;
+            position: relative;
+            &::before {
+                position: absolute;
+                content: "\e65d";
+                font-family: $icon-font;
+                top: 0;
+                left: -20px;
+                color: $primary-color;
+            }
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* project single page end */

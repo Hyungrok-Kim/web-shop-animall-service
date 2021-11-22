@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader img{
+    display: flex;
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+.dropbtn {
+    background-color : white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.totalCategory:hover .dropbtn{
+	
+	color : #997296 ;
+	
+}
+
+.leftMenu {
+	
+	 width : 100px;
+	 display:flex;
+	 justify-content:center;
+	 align-items: center;
+}
+
+.leftMenu a:hover{
+	
+	color : #997296;
+	
+}
+
+/* absolute를 주면 메뉴바가 크기에 영향을 받지 않고 떠 있게 됨
+   또한 여기서 중요한 건 상위 div의 크기가 정해져 있기 때문에
+   div들이 옆으로 놓이지 않고 위 아래로 놓이게 됨 따라서 따로 flex설정 필요가 없음*/
+.dropdown-content {
+    display: none;
+    position: absolute;        
+    background-color: white;
+    width: 160px;
+    z-index: 1;
+    border : solid lightgray 1px;
+    box-shadow: 1px 1px 1px 1px gray;
+    
+}
+
+/*  여기서 a에 display:flex를 쓰는 이유는
+	div의 경우 일반적으로 크기 지정이 없을시 최대 크기가 되지만
+	a는 최대 크기가 되지 않아서 옆으로 정렬이 된다
+	a를 display:flex로 주게 되면 a의 크기가 최대가 되어
+	위아래로 정렬이 된다.
+	
+	물론 이 방법 대신에 상위 div에 display : flex를 주고
+	flex-direction : column을 주어도 동일한 효과를 준다. */
+.dropdown-content a { 
+    color: gray;
+    font-weight : lighter;
+    font-size : 14px;
+    padding: 13px 17px;
+    text-decoration: none;
+    display: flex;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.totalCategory:hover .dropdown-content {
+    display: block;
+}
+
+.menucontainer{
+
+   display: flex;
+   
+
+}
+
+.bigContainer{
+	
+	
+	display : flex;
+	
+	
+}
+
+.bigContainer a{
+	
+	color : black;
+	text-decoration : none;
+	
+}
+
+.logoContainer{
+	
+	width : 550px;
+	display : flex;
+	
+	justify-content:center ;
+	align-items: center;
+	
+}
+
+.logoContainer > a > img{
+	
+	height : 120px;
+	width : auto;
+	
+	
+}
+
+.logoBlank{
+	
+	width : 500px; 
+	
+	
+}
+
+.logoMargin{
+	
+	width : 95px;
+	
+}
+
+.rightMenuContainer{
+	
+	display : flex;
+	align-items: flex-end;
+	width : 500px;
+	
+	
+}
+
+.rightMenu{
+	
+	border-right : black 1px solid;
+	width : 100px;
+	height:20px;
+	display:flex;
+	justify-content:center ;
+	align-items: center;
+	
+}
+
+.rightMenu a:hover{
+	
+	color : #997296;
+	
+	
+}
+
+.leftMenuContainer{
+	
+	display : flex;
+	
+	align-items: center;
+	justify-content:center;
+	width : 950px;
+	
+}
+
+.totalCategory{
+	
+	width : 100px;
+	
+	
+}
+
+.searchContainer{
+	
+	display : flex;
+	justify-content:center;
+	align-items: center; 
+	width : 600px; 
+	
+	
+}
+
+.searchContainer input{
+	
+	width : 230px; height:35px;
+	
+}
+
+.searchIcon{
+	
+	width:35px; 
+	height:35px; 
+	border : solid 1px black; 
+	display : flex; 
+	justify-content:center ; 
+	align-items: center;
+	
+}
+
+.searchMargin{
+	
+	width : 70px;
+}
+
+.leftMenuBlank{
+	
+	width : 90px;
+	
+}
+
+.primeContainer{
+	
+	width : 100%;
+	height : auto;
+	display : flex;
+	flex-direction : column;
+	justify-content:center ; 
+	align-items: center;
+	position:fixed;
+	z-index : 9996; 
+	background-color : white;
+	border-bottom : solid 1px #f1f1f1;
+	
+}
+#topButton{
+	
+	position:fixed;
+	top : 600px;
+	left : 95%;
+	z-index : 9997;
+	color : black;
+	font-size : 40px;
+	
+	
+}
+#topButton:hover{
+	
+	color : #997296
+	
+}
+
+

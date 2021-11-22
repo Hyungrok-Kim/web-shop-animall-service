@@ -1,0 +1,270 @@
+/* 3. hero area */
+
+.hero {
+	&-slider {
+		&.slick-slider {
+			margin-bottom: 80px;
+		}
+
+		[data-animation-in] {
+			opacity: 0;
+		}
+
+		&-item {
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			outline: 0;
+		}
+
+		.prevArrow,
+		.nextArrow {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 9;
+			height: 70px;
+			width: 70px;
+			border-radius: 50%;
+			background: rgba($color: $secondary-color, $alpha: .5);
+			color: $white;
+			border: 0;
+			font-size: 25px;
+			line-height: 70px;
+			opacity: 0;
+			transition: all linear .2s;
+
+			@include mobile {
+				display: none;
+			}
+
+			&:focus {
+				outline: 0;
+			}
+
+			&:hover {
+				background: rgba($color: $primary-color, $alpha: .5);
+			}
+		}
+
+		.prevArrow {
+			left: 20px;
+		}
+
+		.nextArrow {
+			right: 20px;
+		}
+
+		&:hover {
+
+			.prevArrow,
+			.nextArrow {
+				opacity: 1;
+			}
+		}
+
+		.slick-dots {
+			bottom: -81px;
+			padding-left: 0;
+			text-align: center;
+			border-bottom: 1px solid $border-color;
+
+			li {
+				width: 295px;
+				height: 80px;
+				background: $white;
+				margin: 0;
+				display: inline-block;
+				position: relative;
+
+				@include desktop-lg {
+					width: 230px;
+				}
+
+				@include desktop {
+					width: 180px;
+				}
+
+				@include tablet {
+					width: 120px;
+				}
+
+				@include mobile {
+					width: 25%;
+				}
+
+				/* @include mobile-xs {
+                    width: 50px;
+                } */
+				&::before {
+					position: absolute;
+					content: '';
+					left: 50%;
+					top: -12px;
+					height: 25px;
+					width: 25px;
+					background: $secondary-color;
+					transform: translateX(-50%) rotate(-45deg);
+					opacity: 0;
+				}
+
+				a {
+					display: block;
+					position: relative;
+					text-align: center;
+					transition: .3s ease;
+					color: $secondary-color;
+
+					i {
+						display: inline-block;
+						font-size: 30px;
+						line-height: 80px;
+						margin-right: 15px;
+						vertical-align: middle;
+
+						@include desktop {
+							font-size: 20px;
+							margin-right: 5px;
+						}
+
+						@include tablet {
+							margin: 0;
+						}
+					}
+
+					span {
+						font-size: 18px;
+						font-weight: 500;
+						line-height: 80px;
+
+						@include desktop {
+							font-size: 15px;
+						}
+
+						@include tablet {
+							display: none;
+						}
+					}
+				}
+
+				&.slick-active {
+					background: $secondary-color;
+
+					a {
+						color: $white;
+					}
+
+					&::before {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&-content {
+		h4 {
+			letter-spacing: 2px;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+	swipwe slider
+--------------------------------------------------------------*/
+.swiper {
+	&-slider {
+		width: 100%;
+		min-height: calc(100vh - 150px);
+		display: flex;
+		position: relative;
+		z-index: 0;
+	}
+
+	&-container {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	&-slide {
+		overflow: hidden;
+
+		.slide-inner {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	/* slider dots */
+	&-pagination-bullet {
+		width: 12px;
+		height: 12px;
+		text-align: center;
+		line-height: 12px;
+		font-size: 12px;
+		color: $black;
+		opacity: 1;
+		background: rgba($color: $primary-color, $alpha: .2);
+
+		&-active {
+			color: $white;
+			background: $primary-color;
+			width: 15px;
+			height: 15px;
+			text-align: center;
+			line-height: 15px;
+		}
+	}
+
+	/* slider arrows */
+	&-button-prev,
+	&-button-next {
+		background: transparent;
+		width: auto;
+		height: auto;
+		opacity: 0.3;
+		text-align: center;
+		transition: all 0.3s;
+		@include tablet {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&-button-prev {
+		left: 25px;
+
+		&::before {
+			font-family: $icon-font;
+			content: "\e64a";
+			font-size: 40px;
+			color: $primary-color;
+		}
+	}
+
+	&-button-next {
+		right: 25px;
+
+		&::before {
+			font-family: $icon-font;
+			content: "\e649";
+			font-size: 40px;
+			color: $primary-color;
+		}
+	}
+}

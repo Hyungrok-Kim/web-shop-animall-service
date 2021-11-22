@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.carousel-container{
+	
+	
+	overflow : hidden;
+	position: relative;
+}
+
+.carousel-slide{
+	
+	display : flex;
+	
+	
+	
+}
+
+.carousel-slide img{
+	
+	margin : auto;
+	height : auto;
+	width : 100%;
+	
+}
+
+#prevBtn{
+	
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	left: 5%;
+	font-size: 50px;
+	color: white ;
+	opacity : 0;
+	cursor : pointer;
+	
+}
+
+#nextBtn{
+	
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	right: 5%;
+	font-size: 50px;
+	color: white ;
+	opacity : 0;
+	cursor : pointer;
+	
+}

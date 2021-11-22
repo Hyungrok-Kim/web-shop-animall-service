@@ -1,0 +1,105 @@
+/* 15. work section */
+
+.work {
+    /* 15.1 work slider */
+    &-slider {
+        &-image {
+            position: relative;
+            .image-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba($color: $black, $alpha: .75);
+                height: 100%;
+                width: 100%;
+                padding: 15px 25px;
+                opacity: 0;
+                transition: .2s;
+                i {
+                    position: absolute;
+                    color: $white;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: inline-block;
+                    font-size: 24px;
+                    transition: .2s ease;
+                    padding: 10px;
+                    &:hover {
+                        font-size: 30px;
+                    }
+                }
+                a.h4 {
+                    position: absolute;
+                    bottom: 50px;
+                    color: $white;
+                    transition: .2s ease;
+                    transform: translateY(20px);
+                    opacity: 0;
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+                p {
+                    position: absolute;
+                    bottom: 15px;
+                    color: $white;
+                    transform: translateY(10px);
+                    opacity: 0;
+                    transition: .3s ease;
+                    transition-delay: .1s;
+                }
+            }
+            &:hover {
+                .image-overlay {
+                    opacity: 1;
+                }
+                a.h4,
+                p {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        }
+        /* 15.2 slick dots */
+        .slick-dots {
+            padding-left: 0;
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            li {
+                margin: 0 14px;
+                @include mobile-xs {
+                    margin: 0 2px;
+                }
+                &:first-child{
+                    margin-left: 0;
+                }
+                button {
+                    height: 10px;
+                    width: 40px;
+                    border-radius: 25px;
+                    color: transparent;
+                    overflow: hidden;
+                    border: 0;
+                    border: 2px solid $border-color;
+                    background: transparent;
+                    outline: 0;
+                    display: block;
+                    &::before{
+                        display: none;
+                    }
+                    @include mobile-xs {
+                        width: 10px;
+                    }
+                }
+                &.slick-active {
+                    button {
+                        border-color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}

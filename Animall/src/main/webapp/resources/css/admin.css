@@ -1,0 +1,885 @@
+@charset "UTF-8";
+
+.firstPrimeContainer_ForMain{
+	
+	display:flex; 
+	justify-content : center; 
+	align-items:center;
+	width : 100vw;
+	height : 100vh; 
+/* 	화면 크기에 반응형으로 반응하기 위해서는
+	%가 아니라 vw, vh로 해야 하며
+	남는 여백은 body에 margin:0을 주면 된다  */
+	
+	overflow : hidden;
+}
+
+.secondPrimeContainer_ForMain{
+	
+	display:flex; 
+	flex:1;
+	height:100%;
+/* 	부모가 최대치의 값을 갖고 있어야만
+	flex:1이 화면에 맞게 최대치로 늘어나게 된다 */
+	
+}
+
+.bigContainer_ForMain1{
+	
+	display: flex;
+	flex-direction: column;
+	width:310px;
+	height : 100%;
+	background-color: #353535;
+	
+}
+
+.bigContainer_ForMain1 img{
+	
+	height : 150px;
+	width : auto;
+	margin-left:40px;
+	
+}
+
+.bigContainer_ForMain1 div{
+	
+	font-size : 15pt;
+	
+}
+
+
+.menuContainer_ForMain{
+	
+	color : white; 
+	display:flex; 
+	justify-content : flex-start;
+	align-items:center; 
+	height:50px; 
+	margin-top : 20px;
+	padding-left : 40px;
+	cursor:pointer;
+	width : 310px;
+}
+.menuContainer_ForMain i{
+	
+	font-size:18pt;
+	
+}
+
+.menuContainer_ForMain:hover{
+	
+	background-color : #997296
+	
+}
+
+
+.bigContainer_ForMain2{
+
+	display:flex; 
+	flex-direction:column; 
+	align-items:center;
+	width:100%; 
+	height:100%;
+
+	
+}
+
+.topContainer_ForMain{
+	
+	display:flex; 
+	width: 100%; 
+	min-width:1000px; 
+	border-bottom:1px solid lightgray;
+	min-height : 80px;
+	
+}
+
+.topContainerLeft_ForMain{
+	
+	display:flex;   
+	flex:1; 
+	height:80px;
+	
+	
+}
+
+.topContainerRight_ForMain{
+	
+	width:400px; 
+	height:80px; 
+	display:flex; 
+	justify-content: space-around; 
+	align-items : center;
+	padding-right:40px;
+	
+	
+}
+
+.topContainerRight_ForMain i{
+	
+	font-size : 20pt;
+	color : #353535;
+}
+
+.topContainerRight_ForMain div:hover{
+	
+	color : #997296;
+	cursor:pointer;
+}
+
+.topContainerRight_ForMain div:hover i{
+	
+	color : #997296;
+	cursor:pointer;
+}
+
+.topContainerRight_ForMain a{
+	
+	text-decoration : none;
+	color:#353535;
+	
+}
+
+.topMenu_profileImgBox{
+	
+	border : solid 1px lightgray;
+	border-radius : 50%;
+	width : 50px; 
+	height : 50px;
+	overflow : hidden;
+	
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right : 4%;
+    background-color: white;
+    width: 160px;
+    z-index: 1;
+    border : solid lightgray 1px;
+    box-shadow: 1px 1px 1px 1px gray;
+    
+}
+
+.dropdown-content a { 
+    color: #353535;
+    font-size : 14px;
+    font-weight : bold;
+    padding: 13px 17px;
+    text-decoration: none;
+    display: flex;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.totalCategory:hover .dropdown-content {
+    display: block;
+}
+
+.middleContainer_ForMain{
+	
+	background-color:#EEEEEE;
+	display:flex;
+	flex-direction : column;
+	justify-content:center; 
+	align-items : center; 
+	width : 100%;
+	height : 100%;
+	
+	min-width : 800px;
+	
+	overflow-y: scroll;
+/* 	내용은 컨테이너 안의 내용이 많아지는 것이기 때문에
+	항상 자식의 부모 컨테이너에 scroll을 해줘야 함.
+	
+	또한 scroll이 적용되려면 자식이 하나의 박스 형태로 존재하여
+	구체적인 값을 가지고 있어야 함
+	부모도 구체적인 값은 가지고 있어야 함  */
+}
+
+.Top_ForMenu{
+	
+	height : 80px; 
+	width:90%;
+	min-width : 900px;
+	display : flex; 
+	align-items : flex-end; 
+	border-bottom:solid 1px lightgray;
+	background-color: white;
+	justify-content : center;
+	border-radius : 5px 5px 0 0;
+}
+
+.Top_ForMenu div{
+	 
+	width:160px; 
+	display : flex; 
+	align-items : center; 
+	justify-content : center;
+	margin-bottom : 10px;
+	font-weight : bold;
+	font-size : 15pt;
+	margin-right : 8px;
+	
+	
+}
+
+.Middle_ForMenu{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	height : 450px; 
+	width:90%;
+	min-width : 900px;
+	background-color: white;
+}
+
+.memberInfoList{
+	
+	display : flex;
+	align-items : center;
+	border-bottom : 1px solid lightgray;
+}
+
+.memberInfoList label{
+	
+	margin-right : 18px;
+	margin-top : 7px;
+	width : 18px; 
+	height : 18px;
+	border-radius : 50%;
+	cursor : pointer;
+	border : solid 1px gray;
+	
+}
+
+.memberInfoList input[type=checkbox]:checked + label{
+	
+	background-color : #997296;
+	border:solid 1px white;
+}
+
+
+.memberInfoList div{
+	
+	width:160px;
+	height : 44px;
+	display : flex; 
+	align-items : center;
+	justify-content : center;
+	overflow : scroll;
+	margin-right : 8px;
+	
+	
+}
+
+.Bottom_ForMenu{
+	
+	height : 100px; 
+	width:90%;
+	min-width : 900px;
+	border-top : solid 1px lightgray; 
+	display : flex; 
+	flex-direction : column;
+	align-items : center; 
+	justify-content : center;
+	background-color: white;
+	
+	border-radius : 0 0 5px 5px;
+}
+.Bottom_ForMenu > div{
+	
+	display : flex;
+	align-items : center; 
+	justify-content : center;
+	
+}
+.searchBox{
+	
+	width : 300px;
+	height : 34px;
+	
+}
+
+.searchButton{
+	
+	width : 80px;
+	height : 34px;
+	background-color : #997296;
+	color: white;
+	border : none;
+	cursor : pointer;
+	
+}
+
+.Bottom_ForMenu select{
+	
+	width : 100px;
+	height : 34px;
+	
+}
+
+.Bottom_{
+	
+	width : 100%;
+	display : flex;
+	justify-content : space-around;
+	
+	
+}
+
+.deleteButton_botton{
+	
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	width : 20%;
+	height : 34px;
+	
+	
+}
+
+.deleteButton_botton label{
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	width : 80px;
+	height : 34px;
+	background-color : #997296;
+	color: white;
+	border : none;
+	cursor : pointer;
+	border-radius : 5px;
+	
+}
+
+.deleteButton_blank{
+	
+	width : 20%;
+	height : 34px;
+	
+}
+
+/* ------------------------- 메인페이지 ------------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+.middleContainer_ForMainMain{
+	
+	background-color:#EEEEEE;
+	display:flex;
+	width : 100%;
+	height : 100%;
+	
+	min-width : 800px;
+}
+
+.leftContainer_ForMainMain{
+	
+	height : 80%;
+	width : 30%; 
+	margin : 50px 25px 0px 50px;
+	display: flex; 
+	flex-direction : column; 
+	justify-content:space-between;
+	align-items : center;
+	
+}
+
+.profileContainer_ForMain{
+	
+	height : 70%; 
+	width : 100%;  
+	background-color : white;
+	display: flex;
+	flex-direction : column; 
+	justify-content : center;
+	align-items : center;
+	border-radius : 5px;
+	
+}
+
+.profile_ImageBox{
+	
+	border : solid 1px lightgray;
+	border-radius : 50%;
+	width : 125px; 
+	height : 125px; 
+	overflow : hidden;
+}
+
+.profile_ms{
+	
+	display:flex; 
+	flex-direction : column; 
+	width : 70%;
+	
+}
+
+.profile_s{
+	
+	display:flex; 
+	justify-content:space-between; 
+	width:100%;
+	margin-top:15px; 
+	font-size : 14pt; 
+	font-weight : bold;
+	color:#353535;
+}
+
+.profile_m{
+	
+	display:flex; 
+	justify-content:space-between; 
+	width:100%;
+	margin-top:25px; 
+	font-size : 14pt;
+	font-weight : bold;
+	color:#353535;
+}
+
+.bottomBox_Container{
+	
+	display:flex; 
+	flex-direction : column; 
+	justify-content : space-between;
+	width : 100%; 
+	height : 26%;
+	
+}
+
+.firstLine_Container{
+	
+	display : flex; 
+	justify-content : space-between; 
+	width: 100%; 
+	height : 100%;
+	align-items : flex-start;
+	
+}
+
+.firstLine_Container div{
+	
+	width : 47%; 
+	height : 85%; 
+	background-color : white;
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	font-size : 13pt;
+	border-radius : 5px;
+	font-weight : bold;
+	cursor : pointer;
+}
+
+.firstLine_Container div i{
+	
+	font-size : 20pt;
+	color : #997296;
+	margin-right : 10px;
+	
+}
+
+
+.secondLine_Container{
+	
+	display : flex; 
+	justify-content : space-between; 
+	width: 100%; 
+	height : 100%;
+	align-items: flex-end;
+}
+
+.secondLine_Container div{
+	
+	width : 47%; 
+	height : 85%; 
+	background-color : white;
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	font-size : 13pt;
+	border-radius : 5px;
+	font-weight : bold;
+	cursor : pointer;
+}
+
+.secondLine_Container div i{
+	
+	font-size : 20pt;
+	color : #997296;
+	margin-right : 10px;
+	
+}
+
+.rightContainer_ForMainMain{
+	
+	height : 80%; 
+	width : 60%;
+	margin : 50px 0px 0px 25px; 
+	background-color : white;
+	display:flex; 
+	flex-direction : column; 
+	align-items : center; 
+	justify-content:center;
+	border-radius : 5px;
+}
+
+.rightContainer_top{
+	
+	display : flex; 
+	justify-content:center; 
+	align-items:center;
+	font-size : 16pt;
+	font-weight : bold;
+	color:#353535;
+	margin-bottom : 25px; 
+}
+
+
+.rightContainer_middle{
+	
+	width : 90%; 
+	height : 60%;
+	margin-bottom : 15px; 
+	overflow : hidden; 
+	border-radius:5px;
+	display : flex;
+	
+}
+
+.rightContainer_middle > img{
+	
+	width : auto;
+	height : 100%;
+	margin-left : -80px;
+	border-right : 4px solid white;
+	border-radius : 5px; 
+}
+
+.rightImage_Container{
+	
+	display:flex;
+	flex-direction : column; 
+	height : 100%; 
+	width : 35%;
+	border-radius : 5px; 
+	overflow:hidden;
+	
+}
+.rightImage_Container img{
+
+	height : 50%; 
+	width : auto;
+	border-radius : 5px; 
+	
+}
+ 
+
+.rightContainer_bottom{
+	
+	display :flex;
+	justify-content:center;
+	
+}
+
+/* ------------------------- 관리자 기본정보 설정 ------------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+
+.primeContainer_forRayer{
+	
+	visibility : hidden;
+	
+}
+
+.dimedContainer_forRayer{
+	
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	background-color: #0000004d; 
+	z-index: 9998;
+	
+}
+
+.bigContainer_forRayer{
+	
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	z-index: 9999;
+	
+	
+}
+
+.formContainer_forRayer{
+	
+background-color: white; 
+width: 500px; 
+height: 400px; 
+position: relative; 
+display: flex;
+flex-direction : column;
+justify-content: space-between;
+align-items : center;
+border-radius : 10px;
+
+}
+
+
+
+.fileContainer_forRayer div{
+	
+	margin-top : 10px;
+	
+}
+
+.fileBox{
+	
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+	justify-content:center;
+	width : 350px;
+	
+}
+
+.thumbnailImage_container{
+	
+	width : 125px;
+	height : 125px;
+	overflow : hidden;
+	border-radius : 50%;
+	border : solid 1px lightgray;
+	
+}
+
+.fileBox input[type="file"]{
+	
+	visibility : hidden;
+	overflow : hidden;
+}
+
+
+
+
+.fileBox label{
+	
+}
+
+.writeButton_forRayer{
+	
+	border : none;
+	margin-top: 20px; 
+	background-color: #997296; 
+	width: 350px; 
+	border-radius: 10px; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer; 
+	height: 40px;
+	font-size: 14pt; 
+	color: white;
+}
+
+
+.writeButton_forRayer:hover{
+	
+	background-color: #D4D1DC;
+	color : white;
+}
+
+.closeButton_forRayer{
+	
+	cursor: pointer; 
+	position: absolute; 
+	top: 10px; 
+	right: 10px;
+
+}
+
+.closeButton_forRayer i{
+	
+font-size : 40px;
+
+	
+}
+
+.closeButton_forRayer i:hover{
+	
+	color : #997296; 
+	
+}
+
+
+/*   */
+
+.filebox{
+	
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	justify-content : center;
+	
+}
+
+.upload-display{ 
+/* 이미지가 표시될 지역 */ 
+margin-bottom: 5px; 
+} 
+ 
+.upload-thumb-wrap {
+/* 추가될 이미지를 감싸는 요소 */
+
+width: 120px;
+height : 100px;  
+border: 1px solid lightgray;
+border-radius: 5px;
+overflow : hidden;
+} 
+
+.upload-display img {
+/* 추가될 이미지 */  
+
+	width : 100%;
+	height : auto;
+
+
+}
+
+
+/* ------------------------- 스타일리스트 css ------------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+.Top_ForMenu2{
+	
+	height : 80px; 
+	width:90%;
+	min-width : 900px;
+	display : flex; 
+	align-items : flex-end; 
+	border-bottom:solid 1px lightgray;
+	background-color: white;
+	justify-content : center;
+	border-radius : 5px 5px 0 0;
+}
+
+.Top_ForMenu2 div{
+	
+	width:7%; 
+	display : flex; 
+	align-items : center; 
+	justify-content : center;
+	margin-bottom : 10px;
+	font-weight : bold;
+	font-size : .8vw;
+	margin-right : 8px;
+	
+}
+
+.memberInfoList2{
+	
+	display : flex;
+	align-items : center;
+	border-bottom : 1px solid lightgray;
+	justify-content : center;
+	width : 100%;
+}
+
+.memberInfoList2 label{
+	
+	margin-right : 18px;
+	margin-top : 7px;
+	width : 18px; 
+	height : 18px;
+	border-radius : 50%;
+	cursor : pointer;
+	border : solid 1px gray;
+	
+}
+
+.memberInfoList2 input[type=checkbox]:checked + label{
+	
+	background-color : #997296;
+	border:solid 1px white;
+}
+
+
+.memberInfoList2 div{
+	
+	width:7%;
+	height : 44px;
+	display : flex; 
+	align-items : center;
+	justify-content : center;
+	overflow : scroll;
+	margin-right : 8px;
+	font-size : .8vw;
+	
+	
+	
+}
+
+
+/*  ------------            notice 게시판  -------------------             */
+
+
+.ck-editor__editable {
+        width : 850px;
+        height: 450px;
+    }
+    
+.deleteButton_botton button{
+    display : flex;
+	justify-content : center;
+	align-items : center;
+	width : 80px;
+	height : 34px;
+	background-color : #997296;
+	color: white;
+	border : none;
+	cursor : pointer;
+	border-radius : 5px;
+}
+
+.formContainer_forRayer2{
+	
+background-color: white; 
+width: 900px; 
+height: 700px; 
+position: relative; 
+display: flex;
+flex-direction : column;
+justify-content: space-between;
+align-items : center;
+border-radius : 10px;
+
+}
+
+.noticeSave{
+	
+	 display : flex;
+	justify-content : center;
+	align-items : center;
+	width : 80px;
+	height : 34px;
+	background-color : #997296;
+	color: white;
+	border : none;
+	cursor : pointer;
+	margin-bottom : 20px;
+	border-radius : 5px;
+	
+}

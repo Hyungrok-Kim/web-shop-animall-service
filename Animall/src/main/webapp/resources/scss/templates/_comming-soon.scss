@@ -1,0 +1,114 @@
+/* 24. comming soon */
+
+.comming-soon {
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    h1 {
+        font-size: 50px;
+        font-weight: 600;
+        @include mobile {
+            font-size: 30px;
+        }
+    }
+    .form-control {
+        height: 45px;
+        border-radius: 45px;
+        position: relative;
+        background: transparent;
+        border: 1px solid $border-color;
+        color: $white;
+        margin-bottom: 40px;
+        &::placeholder {
+            color: $text-color;
+        }
+    }
+    .btn-email {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        background: $white;
+        border: 0;
+        color: $primary-color;
+        border-radius: 45px;
+        height: 45px;
+        padding: 0 50px;
+        @include mobile {
+            padding: 0 10px;
+        }
+    }
+    i {
+        color: #5c5c5c;
+        margin: 0 15px;
+        transition: .2s ease;
+        font-size: 24px;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+/* 24.1 syotimer */
+
+.syotimer {
+    text-align: center;
+    margin: 0 auto 40px;
+    &-cell {
+        &:last-child {
+            .syotimer-cell__value {
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    &-cell {
+        display: inline-block;
+        margin: 0 25px;
+        @include desktop-lg {
+            margin: 0 20px;
+        }
+        @include mobile {
+            margin: 0 10px;
+        }
+        @include mobile-xs {
+            margin: 0 5px;
+        }
+        &__value {
+            font-size: 60px;
+            font-weight: 600;
+            color: $white;
+            position: relative;
+            @include desktop-lg {
+                font-size: 50px;
+            }
+            @include mobile {
+                font-size: 30px;
+            }
+            @include mobile-xs {
+                font-size: 24px;
+            }
+            &::before {
+                position: absolute;
+                content: ':';
+                height: 30px;
+                color: $white;
+                right: -30px;
+                top: 0;
+                @include mobile {
+                    right: -20px;
+                }
+                @include mobile-xs {
+                    right: -12px;
+                }
+            }
+        }
+        &__unit {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: $white;
+        }
+    }
+}

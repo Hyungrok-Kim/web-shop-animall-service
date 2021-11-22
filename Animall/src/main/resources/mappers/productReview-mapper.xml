@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productReviewMapper">
+	
+	<insert id="insertReviewImage" parameterType="ProductReviewImage">
+		INSERT INTO REVIEW_IMAGES(PRIMGNO, ORIGINNAME, CHANGENAME, IMGPATH, IMGLEVEL, UPLOADDATE, ISDELETE)
+		VALUES(SEQ_PRIMGNO.NEXTVAL, #{originname}, #{changename}, #{imgpath}, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+	
+	<insert id="insertProductReview" parameterType="ProductReview">
+		
+		<selectKey keyProperty="primgno" resultType="_int" order="BEFORE">
+			SELECT SEQ_PRIMGNO.CURRVAL FROM DUAL
+		</selectKey>
+	
+		INSERT INTO PRODUCT_REVIEW (RNO, PNO, MNO, RRATING, RDATE, RCONTENT, PRIMGNO) 
+		VALUES(SEQ_RNO.NEXTVAL, #{pno}, #{mno}, #{rrating}, DEFAULT, #{rcontent}, #{primgno})
+	</insert>
+	
+	<select id="selectProductReview" parameterType="_int" resultType="ProductReview">
+		SELECT * FROM PRODUCT_REVIEW WHERE RNO = #{rno}
+	</select>
+	
+	<delete id="deleteProductReview" parameterType="_int">
+		DELETE FROM PRODUCT_REVIEW WHERE RNO = #{rno}
+	</delete>
+	
+	<delete id="deleteProductReviewImage" parameterType="_int">
+		DELETE FROM REVIEW_IMAGES WHERE PRIMGNO = #{primgno}
+	</delete>
+	
+	<select id="selectProductReviewImage" parameterType="_int" resultType="ProductReviewImage">
+		SELECT * FROM REVIEW_IMAGES WHERE PRIMGNO = #{primgno}
+	</select>
+</mapper>
